@@ -54,6 +54,7 @@ plugins.push(
 module.exports = {
   entry: {
     content: './src/content.tsx',
+    background: './src/background.js',
   },
   devtool: IN_PRODUCTION_MODE ? 'source-map' : 'eval-source-map',
   mode: IN_PRODUCTION_MODE ? 'production' : 'development',

@@ -137,5 +137,5 @@ export function getUrlForRedirect(
   type = 'blob',
   path?: string,
 ) {
-  return `https://github.com/${userName}/${repoName}/${type}/${branchName}/${path}`
+  return `/${userName}/${repoName}/${type}/${branchName}/${path}`
 }

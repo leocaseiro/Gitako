@@ -11,10 +11,21 @@
   },
   "homepage_url": "https://github.com/EnixCoda/Gitako",
   "permissions": [
+    "contextMenus",
     "storage",
     "*://*.github.com/*",
     "*://*.sentry.io/*"
   ],
+  "optional_permissions": [
+    "http://*/*",
+    "https://*/*"
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
   "web_accessible_resources": [
     "icons/vscode/*",
     "content.css"

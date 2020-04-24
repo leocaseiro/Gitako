@@ -1,3 +1,4 @@
+import 'webext-dynamic-content-scripts'
 import { withErrorLog } from 'analytics'
 import { Gitako } from 'components/Gitako'
 import { addMiddleware } from 'driver/connect'

@@ -27,6 +27,14 @@ Gitako is a file tree extension for GitHub, available for Chrome, Firefox and Ed
 
 [for Firefox](https://addons.mozilla.org/en-US/firefox/addon/gitako-github-file-tree/)
 
+### GitHub Enterprise support
+
+To enable the extension on your organization's domain:
+
+1. Right click on the extension icon
+2. Choose "Enable Gitako - Github file tree on this domain"
+3. Reload the page
+
 ### Issues
 
 Any bug report or feature request discussions are welcomed, feel free to draft an [issue](https://github.com/EnixCoda/Gitako/issues/)!
