@@ -1,0 +1,515 @@
+/* Make clicks pass-through */
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background: #29d;
+
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  display: block;
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  height: 100%;
+  box-shadow: 0 0 10px #29d, 0 0 5px #29d;
+  opacity: 1.0;
+
+  -webkit-transform: rotate(3deg) translate(0px, -4px);
+      -ms-transform: rotate(3deg) translate(0px, -4px);
+          transform: rotate(3deg) translate(0px, -4px);
+}
+
+/* Remove these to get rid of the spinner */
+#nprogress .spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031;
+  top: 15px;
+  right: 15px;
+}
+
+#nprogress .spinner-icon {
+  width: 18px;
+  height: 18px;
+  box-sizing: border-box;
+
+  border: solid 2px transparent;
+  border-top-color: #29d;
+  border-left-color: #29d;
+  border-radius: 50%;
+
+  -webkit-animation: nprogress-spinner 400ms linear infinite;
+          animation: nprogress-spinner 400ms linear infinite;
+}
+
+.nprogress-custom-parent {
+  overflow: hidden;
+  position: relative;
+}
+
+.nprogress-custom-parent #nprogress .spinner,
+.nprogress-custom-parent #nprogress .bar {
+  position: absolute;
+}
+
+@-webkit-keyframes nprogress-spinner {
+  0%   { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+@keyframes nprogress-spinner {
+  0%   { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+:root {
+  --gitako-width: 260px;
+}
+.gitako-ready .js-header-wrapper {
+  background: #24292e;
+}
+.gitako-ready .Header {
+  max-width: 1012px;
+  margin: 0 auto;
+}
+@media (min-width: 1020px) {
+  body {
+    min-width: 1020px;
+  }
+}
+.markdown-body .clippy-wrapper {
+  position: relative;
+  width: 0;
+  height: 0;
+  top: 8px;
+  left: calc(100% - 40px);
+  z-index: 1;
+}
+.markdown-body .clippy-wrapper .clippy {
+  width: 32px;
+  height: 32px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #f9f9f9;
+}
+.markdown-body .clippy-wrapper .clippy:hover {
+  background: #fff;
+}
+.markdown-body .clippy-wrapper .clippy:active {
+  background: #f0f0f0;
+}
+.markdown-body .clippy-wrapper .clippy .icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNCIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDE0IDE2Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0yIDEzaDR2MUgydi0xem01LTZIMnYxaDVWN3ptMiAzVjhsLTMgMyAzIDN2LTJoNXYtMkg5ek00LjUgOUgydjFoMi41Vjl6TTIgMTJoMi41di0xSDJ2MXptOSAxaDF2MmMtLjAyLjI4LS4xMS41Mi0uMy43LS4xOS4xOC0uNDIuMjgtLjcuM0gxYy0uNTUgMC0xLS40NS0xLTFWNGMwLS41NS40NS0xIDEtMWgzYzAtMS4xMS44OS0yIDItMiAxLjExIDAgMiAuODkgMiAyaDNjLjU1IDAgMSAuNDUgMSAxdjVoLTFWNkgxdjloMTB2LTJ6TTIgNWg4YzAtLjU1LS40NS0xLTEtMUg4Yy0uNTUgMC0xLS40NS0xLTFzLS40NS0xLTEtMS0xIC40NS0xIDEtLjQ1IDEtMSAxSDNjLS41NSAwLTEgLjQ1LTEgMXoiLz48L3N2Zz4=);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.markdown-body .clippy-wrapper .clippy .icon.success {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xMiA1bC04IDgtNC00IDEuNS0xLjVMNCAxMGw2LjUtNi41TDEyIDV6Ii8+PC9zdmc+);
+}
+.markdown-body .clippy-wrapper .clippy .icon.fail {
+  background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxNiIgdmlld0JveD0iMCAwIDEyIDE2Ij48cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik03LjQ4IDhsMy43NSAzLjc1LTEuNDggMS40OEw2IDkuNDhsLTMuNzUgMy43NS0xLjQ4LTEuNDhMNC41MiA4IC43NyA0LjI1bDEuNDgtMS40OEw2IDYuNTJsMy43NS0zLjc1IDEuNDggMS40OEw3LjQ4IDh6Ii8+PC9zdmc+);
+}
+.hidden {
+  display: none;
+}
+.invisible {
+  visibility: hidden;
+}
+.gitako-toggle-show-button-wrapper {
+  position: fixed;
+  top: 5px;
+  left: 0;
+  z-index: 111;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 4px;
+  will-change: transform;
+  border: 1px solid transparent;
+  transform: translate(calc(var(--gitako-width) - 30px));
+  animation: toggle-show-button-wrapper-expand 0.5s;
+}
+.gitako-toggle-show-button-wrapper .transform-expanded {
+  transform: translate(calc(var(--gitako-width) - 30px));
+}
+.gitako-toggle-show-button-wrapper .transform-collapsed {
+  transform: translate(5px);
+}
+.gitako-toggle-show-button-wrapper.collapsed {
+  border-color: #999999;
+  border-radius: 3px;
+  background: #f5f5f5;
+  transform: translate(5px);
+  animation: toggle-show-button-wrapper-collapse 0.5s;
+}
+.gitako-toggle-show-button-wrapper.collapsed .action-icon {
+  color: #0366d6d0;
+}
+@keyframes toggle-show-button-wrapper-expand {
+  from {
+    transform: translate(5px);
+  }
+  to {
+    transform: translate(calc(var(--gitako-width) - 30px));
+  }
+}
+@keyframes toggle-show-button-wrapper-collapse {
+  from {
+    transform: translate(calc(var(--gitako-width) - 30px));
+  }
+  to {
+    transform: translate(5px);
+  }
+}
+.gitako-toggle-show-button-wrapper .action-icon {
+  color: #666666;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  transition: all 0.5s ease;
+}
+.gitako-toggle-show-button-wrapper .action-icon .octicon {
+  width: 100%;
+  height: 100%;
+}
+.gitako-toggle-show-button-wrapper.error .action-icon {
+  color: #d73a49;
+}
+.gitako-toggle-show-button-wrapper .error-message {
+  display: none;
+  margin-left: 4px;
+  font-size: 12px;
+}
+.gitako-toggle-show-button-wrapper:hover .error-message {
+  display: inline;
+}
+.gitako-side-bar .gitako-position-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  z-index: 111;
+  display: flex;
+}
+.gitako-side-bar .gitako-position-wrapper.hidden {
+  display: none;
+}
+.gitako-side-bar .gitako-position-wrapper .gitako-position-content {
+  width: var(--gitako-width);
+}
+.gitako-side-bar .gitako-resize-handler {
+  display: flex;
+  align-items: center;
+  cursor: ew-resize;
+  user-select: none;
+  width: 0;
+  background: #e1e4e8;
+  border-left: 1px solid #e1e4e8;
+  overflow: hidden;
+}
+.gitako-side-bar .gitako-resize-handler:hover {
+  width: 16px;
+  background: #fafbfc;
+  border-right: 1px solid #e1e4e8;
+}
+.gitako-side-bar .gitako-resize-handler .octicon {
+  transform: rotate(90deg);
+  width: 14px;
+  height: 22px;
+  font-size: 0;
+}
+.gitako-side-bar .gitako-side-bar-body {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fafbfc;
+  border-right: 1px solid #e1e4e8;
+  border-left: 1px solid #e1e4e8;
+  overflow: hidden;
+}
+.gitako-side-bar .gitako-side-bar-body.hidden {
+  display: none;
+}
+.gitako-side-bar .gitako-side-bar-body .octicon {
+  transition: transform 0.3s ease;
+  color: rgba(3, 47, 98, 0.55);
+  width: 100%;
+  height: 100%;
+}
+.gitako-side-bar .gitako-side-bar-body .octicon-wrapper {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+}
+.gitako-side-bar .gitako-side-bar-body .octicon-color {
+  color: rgba(3, 47, 98, 0.55);
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  max-height: calc(100vh - 34px);
+  min-height: 0;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .meta-bar {
+  position: relative;
+  padding: 10px;
+  padding-right: 30px;
+  font-size: 13px;
+  line-height: 20px;
+  color: #586069;
+  background-color: #f1f8ff;
+  border-bottom: 1px solid #c8e1ff;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .meta-bar a {
+  cursor: pointer;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .meta-bar .repo-name {
+  font-weight: bolder;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .description {
+  padding: 4px 10px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .loading-indicator-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .loading-indicator-container .loading-indicator {
+  display: flex;
+  align-items: center;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .loading-indicator-container .loading-indicator-icon {
+  width: 20px;
+  height: 20px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .loading-indicator-container .loading-indicator-icon .octicon {
+  width: 20px;
+  height: 20px;
+  animation: rotate 2s infinite linear;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer {
+  width: 100%;
+  height: 100%;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  /* search input */
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer.freeze {
+  filter: blur(1.5px) opacity(0.6) grayscale(0.9);
+  cursor: pointer;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer.freeze > * {
+  pointer-events: none;
+  user-select: none;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .search-input-wrapper input[type='text'].form-control {
+  box-shadow: none;
+  width: 100%;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .search-input-wrapper input[type='text'].form-control.error {
+  border-color: #d73a49;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .no-results {
+  padding: 0px 10px;
+  color: #666;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .files {
+  flex: 1;
+  overflow: auto;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row {
+  background: #fff;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row:hover {
+  background: #f6f8fa;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row.focused {
+  background: #f0f0f6;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row.disabled .node-item {
+  pointer-events: none;
+  color: #999999;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  color: #0366d6;
+  line-height: 20px;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-top: 1px solid #eaecef;
+  transition: all 0.5s ease;
+  white-space: nowrap;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item .octicon-wrapper:first-child {
+  margin-right: 6px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item-type-icon {
+  margin-right: 4px;
+  width: 16px;
+  height: 16px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item-type-icon + .octicon-wrapper,
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item-type-icon + .node-item-icon {
+  margin-right: 6px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item-icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  vertical-align: text-bottom;
+  box-sizing: content-box;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item-icon.dim {
+  filter: sepia(1) hue-rotate(180deg);
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item.expanded .octicon.ChevronRight {
+  transform: rotate(90deg);
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item .node-item-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item:hover .node-item-name {
+  text-decoration: underline;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item .go-to-button {
+  display: none;
+  white-space: nowrap;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-side-bar-content .file-explorer .node-item-row .node-item:hover .go-to-button {
+  display: inline-block;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar {
+  z-index: 2;
+  background: #fafbfc;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-title {
+  border-top: 1px solid #eaecef;
+  padding: 6px 10px;
+  box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 4px 0 rgba(0, 0, 0, 0.14), 0 3px 3px -2px rgba(0, 0, 0, 0.12);
+  z-index: 1;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-content {
+  padding: 10px 10px;
+  flex: 1;
+  overflow: auto;
+  position: relative;
+  /* inputs for access token & shortcut were too wide */
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-content .shadow-shelter {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  top: 0;
+  left: 0;
+  background: #fafbfc;
+  z-index: 1;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-content-section {
+  padding-bottom: 16px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-content-section .description:hover {
+  cursor: help;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar-content input.form-control {
+  min-width: 100px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar select {
+  -moz-appearance: none;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token {
+  border-bottom: none;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token .link-button {
+  cursor: pointer;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token .hint {
+  color: #6a737d;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token-input-control {
+  display: flex;
+  margin-top: 8px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token-input-control .access-token-input {
+  flex: 1;
+  box-shadow: none;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .access-token-input-control .access-token-input:disabled {
+  cursor: not-allowed;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .toggle-shortcut .hint {
+  color: #6a737d;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .toggle-shortcut-input-control {
+  display: flex;
+  margin-top: 8px;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .toggle-shortcut-input-control .toggle-shortcut-input {
+  flex: 1;
+  box-shadow: none;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .singleton .hint {
+  color: #6a737d;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .header-row {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 10px;
+  border-top: 1px solid #eaecef;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .header-row .version {
+  color: #999999;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .header-row .show-settings-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+.gitako-side-bar .gitako-side-bar-body .gitako-settings-bar .header-row .hide-settings-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+@keyframes rotate {
+  from {
+    transform: rotateZ(0);
+  }
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+
+/*# sourceMappingURL=content.css.map*/
